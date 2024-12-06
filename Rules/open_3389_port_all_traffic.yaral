@@ -1,5 +1,6 @@
 rule open_445_port_all_traffic {
 	meta: 
+		author = "The-Computer-Cowboy"
 		subject = "Open Directory Services Port"
 		description = " This rule detects when a firewall rule allows 0.0.0.0/0 tcp 445"
 		tactic = ""
