@@ -1,0 +1,32 @@
+rule open_22_port_all_traffic
+{
+	meta: 
+		subject = "Open SSH Port"
+		description = " This rule detects when a firewall rule allows 0.0.0.0/0 tcp 22"
+		tactic = ""
+		technique = "Misconfirguration"
+		subtechnique = ""
+		tool = ""
+		datasource = "Security Command Center"
+		category = "Misconfiguration"
+		product = ""
+		logsource = "Security Command Center"
+		actor = ""
+		malware = ""
+		vulnerability = ""
+		custom = ""
+		confidence = "High"
+		severity = "8"
+		falsePositive = ""
+		externalSubject = "0"
+		externalMITRE = "0"
+		version = "1"
+		
+	events:
+		$e.metadata.product_name = "Security Command Center"
+		$e.metadata.product_event_type = "OPEN_SSH_PORT"
+        $e.security_result.detection_fields.value = "ACTIVE"
+		
+condition:
+	$e
+}
