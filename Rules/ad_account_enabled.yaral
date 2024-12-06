@@ -1,6 +1,7 @@
 rule AD_account_enabled
 {
 	meta: 
+		author = "The-Computer-Cowboy"
 		subject = "AD account enabled"
 		description = " This rule detects when an account is enabled in AD."
 		tactic = ""
