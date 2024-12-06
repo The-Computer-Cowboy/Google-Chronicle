@@ -1,6 +1,7 @@
 rule ad_account_created
 {
 	meta: 
+		author = "The-Computer-Cowboy"
 		subject = "AD account created"
 		description = " This rule detects when an account is created in AD."
 		tactic = ""
