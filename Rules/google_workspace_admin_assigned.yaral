@@ -1,6 +1,7 @@
 rule google_workspace_admin_assigned {
 
   meta:
+		author = "The-Computer-Cowboy"
 		subject = "Google Workspace Admin Permissions Assigned"
 		description = "Google workspace admin permissions have been assigned to a user."
 		tactic = ""
