@@ -1,0 +1,21 @@
+rule google_workspace_admin_assigned 
+{
+  meta:
+		subject = "Google Workspace Admin Permissions Assigned"
+		description = "Google workspace admin permissions have been assigned to a user."
+		technique = "Privileged Escalation"
+		datasource = "Google Workspace"
+		category = "Privileged Escalation"
+		logsource = "WORKSPACE_ACTIVITY"
+		confidence = "High" //Modify to whatever your organization desires
+		severity = "8" //Modify to whatever your organization desires
+		version = "1"
+
+  events:
+    $e.metadata.event_type = "USER_RESOURCE_UPDATE_PERMISSIONS"
+    $e.metadata.log_type = "WORKSPACE_ACTIVITY"
+    $e.security_result.category_details = "DELEGATED_ADMIN_SETTINGS"
+
+  condition:
+    $e
+}
