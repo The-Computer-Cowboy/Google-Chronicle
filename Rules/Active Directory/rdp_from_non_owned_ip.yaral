@@ -1,0 +1,29 @@
+rule remote_desktop_from_internet_via_audit {
+ meta:
+    author = "The-Computer-Cowboy"
+    subject = "RDP From Non-Owned IP Address"
+    description = "This rule detects RDP logons not from organization owned IP addresses."
+    product = "Windows"
+    datasource = "Active Directory"
+    category = "Machine Compromise"
+    product = "Active Directory"
+    logsource = "Windows Events"
+    confidence = "High"
+    severity = "9"
+    version = "1"
+
+  events:
+    (($e.metadata.product_event_type = "4624" 
+    and $e.extensions.auth.mechanism = "10") 
+    // Below, add all IP address that your organization owns.
+    // You can copy and past each or re.regex line for all the IPs your organization owns or are interested in.
+    and not ((re.regex($e.principal.ip, `10\..*`) 
+    or re.regex($e.principal.ip, `192\.168\..*`) 
+    or re.regex($e.principal.ip, `127\.0\.0\.1.*`)
+            )
+        )
+    )
+
+  condition:
+    $e
+}
