@@ -1,0 +1,24 @@
+rule open_22_port_all_traffic
+{
+	meta: 
+		author = "The-Computer-Cowboy"
+		subject = "Open SSH Port"
+		description = " This rule detects when a firewall rule allows 0.0.0.0/0 tcp 22 is created or re-enabled."
+		technique = "Misconfirguration"
+		datasource = "Security Command Center"
+		category = "Misconfiguration"
+		product = "Google Cloud Platform"
+		logsource = "Security Command Center"
+		confidence = "High" //Modify to whatever your organization desires
+		severity = "8" //Modify to whatever your organization desires
+		version = "1"
+		
+	events:
+		$e.metadata.product_name = "Security Command Center"
+		$e.metadata.product_event_type = "OPEN_SSH_PORT"
+        $e.security_result.detection_fields.value = "ACTIVE" //Only looking for firewall rules that are Active.
+		//You can remove the line above but it will trigger a second time if you disable or delete the firewall rule.
+		
+condition:
+	$e
+}
