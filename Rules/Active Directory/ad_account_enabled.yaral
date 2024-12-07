@@ -4,23 +4,13 @@ rule AD_account_enabled
 		author = "The-Computer-Cowboy"
 		subject = "AD account enabled"
 		description = " This rule detects when an account is enabled in AD."
-		tactic = ""
 		technique = "User Account Modification"
-		subtechnique = ""
-		tool = ""
 		datasource = "Active Directory"
 		category = "User Account Management"
-		product = ""
+		product = "Active Directory"
 		logsource = "Windows Events"
-		actor = ""
-		malware = ""
-		vulnerability = ""
-		custom = ""
-		confidence = "High"
-		severity = "7"
-		falsePositive = "Legitimate Administrator activity on user accounts."
-		externalSubject = "0"
-		externalMITRE = "0"
+		confidence = "High" //Modify to whatever your organization desires
+		severity = "7" //Modify to whatever your organization desires
 		version = "1"
 		
 	events:
