@@ -1,0 +1,23 @@
+rule malicious_site_requested
+{
+    meta:
+        author = "The-Computer-Cowboy"
+        subject = "Machine Reached Out to Malicious Site"
+        description = "Machine reached out to a known or past known malicious malware sites."
+        product = "DNS Traffic"
+        datasource = "DNS Traffic"
+        category = "Malware"
+        logsource = "" //Change this to whatever your logsource is in your environment.
+        confidence = "High"
+        severity = "9" //Change this to whatever severity you want. 1 is lowest, 10 is highest.
+        version = "1"
+
+    events:
+        $e.network.dns.questions.name in %malicious_domains_list
+        //Checks each DNS query to see if its present in the "malicious_domains_list" reference list.
+        //NOTE: You will have to configure this list yourself. Instructions on how to auto update this list coming soon.
+        //Resource used for reference list of known malicious sites: https://github.com/stamparm/blackbook/blob/master/blackbook.txt
+
+    condition:
+        $e
+}
