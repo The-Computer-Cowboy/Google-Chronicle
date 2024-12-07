@@ -13,6 +13,9 @@ YARA-L Rules
 
     Description: YARA-L rules are used to identify malicious files, network traffic patterns and user behavior patterns.
     Contents:
+        YARA-L rules are located in subfolders within the "Rules" folder. Each subfolder is named according
+        to their specific tool that triggers these events.
+        
         Custom YARA-L Rules: Unique rules developed to detect specific threats and attack techniques.
 
 Usage
