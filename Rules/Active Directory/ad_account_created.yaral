@@ -1,0 +1,35 @@
+rule ad_account_created
+{
+	meta: 
+		author = "The-Computer-Cowboy"
+		subject = "AD account created"
+		description = " This rule detects when an account is created in AD."
+		tactic = ""
+		technique = "User Account Creation"
+		subtechnique = ""
+		tool = ""
+		datasource = "Active Directory"
+		category = "User Account Management"
+		product = ""
+		logsource = "Windows Events"
+		actor = ""
+		malware = ""
+		vulnerability = ""
+		custom = ""
+		confidence = "High"
+		severity = "5"
+		falsePositive = "Legitimate Administrator activity on user accounts."
+		externalSubject = "0"
+		externalMITRE = "0"
+		version = "1"
+		
+	events:
+		$e.metadata.product_event_type = "4720"
+        $e.security_result.rule_name = "EventID: 4720" //Looking for windows eventid 4720 which is when an account is created
+		
+		//Exclusions - Use only if needed using reference lists
+		not $e.target.user.userid in %whitelisted_principal_users
+		
+condition:
+	$e
+}
