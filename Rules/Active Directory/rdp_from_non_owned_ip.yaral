@@ -1,4 +1,4 @@
-rule remote_desktop_from_internet_via_audit {
+rule rdp_from_non_owned_ip {
  meta:
     author = "The-Computer-Cowboy"
     subject = "RDP From Non-Owned IP Address"
