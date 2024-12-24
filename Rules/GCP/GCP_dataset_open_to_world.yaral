@@ -1,0 +1,28 @@
+rule GCP_dataset_open_to_world
+{
+    meta:
+        author = "The-Computer-Cowboy"
+        subject = "GCP Dataset Open to the World"
+        description = "GCP dataset is open to the world via adding allUser or allAuthenticatedUsers to the access policy!"
+        product = "Google Cloud Platform"
+        datasource = "GCP"
+        category = "Misconfiguration"
+        logsource = "GCP_CLOUDAUDIT" //Change this to whatever your logsource is in your environment.
+        confidence = "High"
+        severity = "9" //Change this to whatever severity you want. 1 is lowest, 10 is highest.
+        version = "1"
+
+    events:
+        $e.metadata.log_type = "GCP_CLOUDAUDIT"
+        $e.metadata.event_type = "USER_RESOURCE_UPDATE_PERMISSIONS"
+        $e.metadata.product_name = "BigQuery"
+        $e.metadata.product_event_type = "google.iam.v1.IAMPolicy.SetIamPolicy"
+        $e.security_result.action = "ALLOW"
+        $e.target.application = "bigquery.googleapis.com"
+        $e.target.resource.attribute.labels["dataset_change_binding_deltas_action"] = "ADD"
+        $e.target.resource.attribute.labels["dataset_change_binding_deltas_role"] = /roles\/bigquery.*/
+        $e.target.resource.attribute.labels["dataset_change_binding_deltas_member"] = /allUsers|allAuthenticatedUsers/
+
+    condition:
+        $e
+}
