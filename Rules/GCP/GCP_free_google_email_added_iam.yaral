@@ -1,0 +1,25 @@
+rule GCP_free_google_email_added_iam
+{
+    meta:
+        author = "The-Computer-Cowboy"
+        subject = "Free GMAIL Account Added to IAM Policy"
+        description = "GCP dataset is open to the world via adding allUser or allAuthenticatedUsers to the access policy!"
+        product = "Google Cloud Platform"
+        datasource = "GCP"
+        category = "Backdoor"
+        logsource = "GCP_CLOUDAUDIT" //Change this to whatever your logsource is in your environment.
+        confidence = "High"
+        severity = "9" //Change this to whatever severity you want. 1 is lowest, 10 is highest.
+        version = "1"
+
+    events:
+        $e.metadata.log_type = "GCP_CLOUDAUDIT"
+        $e.metadata.event_type = "USER_RESOURCE_UPDATE_PERMISSIONS"
+        $e.metadata.product_event_type = "SetIamPolicy"
+        $e.security_result.action = "ALLOW"
+        $e.target.resource.attribute.labels["ser_binding_deltas_action"] = "ADD"
+        $e.target.resource.attribute.labels["ser_binding_deltas_member"] = /.*@gmail\.com|.*@googlemail\.com|.*@googlegroups\.com/ nocase    
+
+    condition:
+        $e
+}
