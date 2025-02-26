@@ -15,8 +15,7 @@ rule malicious_site_requested
     events:
         $e.network.dns.questions.name in %malicious_domains_list
         //Checks each DNS query to see if its present in the "malicious_domains_list" reference list.
-        //NOTE: You will have to configure this list yourself. Instructions on how to auto update this list coming soon.
-        //Resource used for reference list of known malicious sites: https://github.com/stamparm/blackbook/blob/master/blackbook.txt
+        //NOTE: You will have to configure this list yourself. Instructions on how to auto update this list coming soon!
 
     condition:
         $e
