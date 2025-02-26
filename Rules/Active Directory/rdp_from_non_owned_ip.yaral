@@ -16,7 +16,7 @@ rule rdp_from_non_owned_ip {
     (($e.metadata.product_event_type = "4624" 
     and $e.extensions.auth.mechanism = "10") 
     // Below, add all IP address that your organization owns.
-    // You can copy and past each or re.regex line for all the IPs your organization owns or are interested in.
+    // You can copy and paste each or re.regex line for all the IPs your organization owns or are interested in.
     and not ((re.regex($e.principal.ip, `10\..*`) 
     or re.regex($e.principal.ip, `192\.168\..*`) 
     or re.regex($e.principal.ip, `127\.0\.0\.1.*`)
