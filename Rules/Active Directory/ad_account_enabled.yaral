@@ -20,6 +20,6 @@ rule AD_account_enabled
 		//Exclusions - Use only if need with reference lists
 		not $e.principal.user.userid in %whitelisted_principal_users
 		
-condition:
-	$e
+	condition:
+		$e
 }
