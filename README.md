@@ -6,8 +6,7 @@ Parsers
 
     Description: Parsers are used to extract relevant information from various log sources and feed it into Chronicle for analysis.
     Contents:
-        Custom Parsers: Tailored parsers for specific log formats and protocols.
-        Community Parsers: Adopted parsers from the open-source community.
+        Custom Parsers: Tailored parsers for specific log formats and protocols. Coming soon!
 
 YARA-L Rules
 
