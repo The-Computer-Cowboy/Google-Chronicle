@@ -1,6 +1,6 @@
-# Chronicle Parsers and YARA Rules
+# Chronicle Parsers and YARA-L Rules
 
-This repository contains a collection of parsers and YARA rules specifically designed to enhance threat detection and incident response capabilities within Google Chronicle SIEM.
+This repository contains a collection of parsers and YARA-L rules specifically designed to enhance threat detection and incident response capabilities within Google Chronicle SIEM.
 
 Parsers
 
@@ -27,18 +27,6 @@ Usage
         Create YARA-L Rules: Use the Chronicle UI or API to create YARA-L rules.
         Configure Detection: Define detection rules that trigger alerts when YARA-L matches are found.
 
-Contributing
-We welcome contributions to this repository. Please follow these guidelines:
-
-    Fork the Repository: Create a fork of the repository on your GitHub account.
-    Create a New Branch: Create a new branch for your feature or bug fix.
-    Make Changes: Commit your changes to the new branch.
-    Push Changes: Push your changes to your forked repository.
-    Submit a Pull Request: Submit a pull request to the main repository.
-
-License
-
-
 Disclaimer
 
-The use of this repository and its contents is solely at your own risk. We make no warranties or guarantees regarding the accuracy, completeness, or effectiveness of the parsers and YARA rules.
+The use of this repository and its contents is solely at your own risk. We make no warranties or guarantees regarding the accuracy, completeness, or effectiveness of anything contained in this repository.
