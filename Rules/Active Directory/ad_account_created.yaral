@@ -15,11 +15,11 @@ rule ad_account_created
 		
 	events:
 		$e.metadata.product_event_type = "4720"
-        $e.security_result.rule_name = "EventID: 4720" //Looking for windows eventid 4720 which is when an account is created
+        	$e.security_result.rule_name = "EventID: 4720" //Looking for windows eventid 4720 which is when an account is created
 		
 		//Exclusions - Use only if needed using reference lists
 		not $e.target.user.userid in %whitelisted_principal_users
 		
-condition:
-	$e
+	condition:
+		$e
 }
