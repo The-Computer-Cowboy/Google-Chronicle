@@ -14,9 +14,9 @@ rule open_445_port_all_traffic {
 	events:
 		$e.metadata.product_name = "Security Command Center"
 		$e.metadata.product_event_type = "OPEN_DIRECTORY_SERVICES_PORT"
-        $e.security_result.detection_fields.value = "ACTIVE" //Only looking for firewall rules that are Active.
+       		$e.security_result.detection_fields.value = "ACTIVE" //Only looking for firewall rules that are Active.
 		//You can remove the line above but it will trigger a second time if you disable or delete the firewall rule.
 		
-condition:
-	$e
+	condition:
+		$e
 }
