@@ -1,4 +1,4 @@
-# Chronicle Parsers and YARA-L Rules
+# Chronicle Parsers, YARA-L Rules, and Integrations
 
 This repository contains a collection of parsers and YARA-L rules specifically designed to enhance threat detection and incident response capabilities within Google Chronicle SIEM.
 
@@ -16,6 +16,13 @@ YARA-L Rules
         to their specific tool that triggers these events.
         
         Custom YARA-L Rules: Unique rules developed to detect specific threats and attack techniques.
+
+Integrations
+
+    Description: Integrations are used to further automated your detectionsn using Chronicle's SOAR platform. These integrations will be used within Chronicle's playbooks.
+    Contents:
+        Integrations are located in the subfolders within the 'Integrations' folder. Each subfolder is named according to the tool its for.
+
 
 Usage
 
